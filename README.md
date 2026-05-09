@@ -1,4 +1,4 @@
-**Scheduling Groups with Pairwise No-Repeat Constraint**
+# Scheduling Groups with Pairwise No-Repeat Constraint
 
 This project has 2 programs which assign students into groups across 6 excercises. The goal of this project is to create a schedule where students aren't paired together multiple times. 
 
