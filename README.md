@@ -31,17 +31,65 @@ After running `brute_force_breakouts.py` The algorithm will run in 3 phases.
 === PHASE 2: Global brute force estimate ===: In phase 2 the estimated run time to create the groupings are created. 
 === PHASE 3: Real brute force (feasible) ===: In phase 3 the algorithm uses brute force to create the groupings and will output the results. Results should look similar to: 
 
-```[WARN] 100,000 full plans checked.
-       Current average speed: 326,143.29 plans/sec
-       Estimated TOTAL runtime: 1.52E+8 ms
-       Worst-case remaining runtime: 0 years, 0 months, 1 days, 18 hours, 16 minutes, 22 seconds
-       Remaining plans to check: 49,633,071,875 (out of 49,633,171,875)```
+```
+=== PHASE 0: Load input ===
+[STEP] Looking for exactly one CSV in: D:\Documents\CLCI\COACHBOT\PLACE CSV HERE
+[STEP] Using CSV: input.csv
+[STEP] Loaded 12 students in 0.2 ms
+[INFO] Class: 101 | Date: August 24, 2025 | Facilitator: -----
+
+=== PHASE 1: Candidate counts (theoretical) ===
+[EX] Day 1 — Exercise 1: preferred=2 -> sizes=[2, 2, 2, 2, 2, 2] | candidates=10,395
+[EX] Day 1 — Exercise 2: preferred=2 -> sizes=[2, 2, 2, 2, 2, 2] | candidates=10,395
+[EX] Day 2 — Exercise 3: preferred=3 -> sizes=[3, 3, 3, 3] | candidates=15,400
+[EX] Day 2 — Exercise 4: preferred=3 -> sizes=[3, 3, 3, 3] | candidates=15,400
+[EX] Day 3 — Exercise 5: preferred=2 -> sizes=[2, 2, 2, 2, 2, 2] | candidates=10,395
+[EX] Day 3 — Exercise 6: preferred=3 -> sizes=[3, 3, 3, 3] | candidates=15,400
+
+=== PHASE 2: Global brute force estimate ===
+[INFO] Candidate counts per exercise: 10,395, 10,395, 15,400, 15,400, 10,395, 15,400
+[INFO] Total full 6-exercise plans (cartesian product) ≈ 4,102,377,707,291,787,000,000,000
+[INFO] Estimating worst-case runtime based on first 100,000 checks, please wait...
+
+[WARN] 100,000 full plans checked.
+       Current average speed: 187,191.74 plans/sec
+       Current average speed: 0.005342 ms/plan
+       Best score seen during benchmark: 10
+
+[ETA] Worst-case runtime to check every plan: 694,932,064,570 years, 2 months, 7 days, 17 hours, 6 minutes, 8 seconds
+[ETA] Worst-case runtime (milliseconds): 2.19e+22 ms
+
+=== PHASE 3: Real brute force (feasible) ===
+[STEP] Generating ALL candidates for Day 1 — Exercise 1...
+[STEP] Generated 10,395 candidates.
+[STEP] Generating ALL candidates for Day 1 — Exercise 2...
+[STEP] Generated 10,395 candidates.
+[STEP] Generating ALL candidates for Day 2 — Exercise 3...
+[STEP] Generated 15,400 candidates.
+[STEP] Generating ALL candidates for Day 2 — Exercise 4...
+[STEP] Generated 15,400 candidates.
+[STEP] Generating ALL candidates for Day 3 — Exercise 5...
+[STEP] Generated 10,395 candidates.
+[STEP] Generating ALL candidates for Day 3 — Exercise 6...
+[STEP] Generated 15,400 candidates.
+[INFO] Estimating worst-case runtime based on first 100,000 checks, please wait...
+[STEP] Starting GLOBAL brute force over all 6 exercises...
+
+[WARN] 100,000 full plans checked.
+Current average speed: 188,163.64 plans/sec
+Estimated TOTAL runtime: 2.18E+22 ms
+Worst-case remaining runtime: 691,342,614,160 years, 1 months, 6 days, 17 hours, 12 minutes, 32 seconds
+Remaining plans to check: 4,102,377,707,291,786,999,900,000 (out of 4,102,377,707,291,787,000,000,000)
+
+Checking remaining plans:   0%|     | 2210000/4102377707291786999900000 [00:12<6354020099077091:33:20, 179343.05plan/s, best_score=20]
+```
 
 After running `improved_breakouts.py` the program will take 3 attempts to generate a schedule and will keep and output the best attempt. The groupings for each student, repeated pairs, and data including the total solve time & repeated pairs are output.
 This file writes: `./output/breakouts_output.csv`
 End of the results should look similar to:
 
-```=== PHASE 0: Load input ===
+```
+=== PHASE 0: Load input ===
 [STEP] Looking for exactly one CSV in: D:\Documents\CLCI\COACHBOT\PLACE CSV HERE
 [STEP] Using CSV: input.csv
 [STEP] Loaded 12 students in 0.2 ms
@@ -121,7 +169,8 @@ End of the results should look similar to:
 
 === DONE ===
 
-PRESS ENTER TO CLOSE PROGRAM```
+PRESS ENTER TO CLOSE PROGRAM
+```
 
 **LIMITATIONS**
 The baseline algorithm has combinatorial explosion, so it becomes infeasible with inputs that are greater than 7. Because of this limitation it takes the baseline algorithm days to fully run, therefore the baseline alorithm will instead estimate the total runtime instead of fully creating the groupings.
