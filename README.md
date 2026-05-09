@@ -34,10 +34,16 @@ Only column required for a student of n to be registered is Participant name. No
 
 ## How to Generate Experimental Results
 After running `brute_force_breakouts.py` The algorithm will run in 3 phases. 
+
 === PHASE 0: Load input ===: In phase 0 the program analyzes the CSV file which contains the input. 
+
 === PHASE 1: Candidate counts (theoretical) ===: In Phase 1 candidates are counted across each day adn each exercise. 
+
 === PHASE 2: Global brute force estimate ===: In phase 2 the estimated run time to create the groupings are created. 
-=== PHASE 3: Real brute force (feasible) ===: In phase 3 the algorithm uses brute force to create the groupings and will output the results. Results should look similar to: 
+
+=== PHASE 3: Real brute force (feasible) ===: In phase 3 the algorithm uses brute force to create the groupings and will output the results.
+
+Results should look similar to: 
 
 ```
 === PHASE 0: Load input ===
