@@ -8,9 +8,9 @@ There are no dependencies for this program outside of the standard Python 3 libr
 Optional command line arguments: 
 ```
 python brute_force_breakouts.py --seed 0
---estimate_after 100000
---batch_update 10000
---max_plans 500000
+python brute_force_breakouts.py --estimate_after 100000
+python brute_force_breakouts.py --batch_update 10000
+python brute_force_breakouts.py --max_plans 500000
 ```
 
 **Improved Algorithm:** This file is our improved alogrithm which uses a decrease-and-conquer approach, and uses a hard and soft phase to manage repeating student groupings. To run our improved algorithm `improved_breakouts.py` enter into command line: python improved_breakouts.py
