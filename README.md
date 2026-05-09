@@ -5,14 +5,22 @@ This project has 2 programs which assign students into groups across 6 excercise
 There are no dependencies for this program outside of the standard Python 3 libraries - simply download the raw project, unzip it, and run from the command line.
 
 **Baseline Algorithm:** This file is our baseline algorithm which uses a brute force approach to create the groupings of students. This program is super exponential - therefore the program will generate a projected runtime when over 1,000,000 pairings are possible for each exercise. To run our baseline algorithm `brute_force_breakouts.py` enter into command line: python brute_force_breakouts.py
-Optional command line arguments: python brute_force_breakouts.py --seed 0 --estimate_after 100000 --batch_update 10000 --max_plans 500000
+Optional command line arguments: 
+```
+python brute_force_breakouts.py --seed 0
+--estimate_after 100000
+--batch_update 10000
+--max_plans 500000
+```
 
 **Improved Algorithm:** This file is our improved alogrithm which uses a decrease-and-conquer approach, and uses a hard and soft phase to manage repeating student groupings. To run our improved algorithm `improved_breakouts.py` enter into command line: python improved_breakouts.py
 defaults:
+```
 python improved_breakouts.py --seed 0
 python improved_breakouts.py --attempts 3
 python improved_breakouts.py --hard_states 100
 python improved_breakouts.py --total_states 10000000
+```
 
 The file `input.csv` contains our input/student information. To set your input, insert or remove students. All participant information is required: 
 - `Participant Name`
@@ -172,5 +180,5 @@ End of the results should look similar to:
 PRESS ENTER TO CLOSE PROGRAM
 ```
 
-**LIMITATIONS**
+
 The baseline algorithm has combinatorial explosion, so it becomes infeasible with inputs that are greater than 7. Because of this limitation it takes the baseline algorithm days to fully run, therefore the baseline alorithm will instead estimate the total runtime instead of fully creating the groupings.
